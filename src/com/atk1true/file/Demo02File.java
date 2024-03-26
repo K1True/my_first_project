@@ -70,6 +70,7 @@ public class Demo02File {
         FileOutputStream fos = new FileOutputStream("/Users/k1true/IdeaProjects/mac_test_project/testdir/test2/1.txt");
         byte[] bytes = {97,98,99,100,101};
         fos.write(bytes);
+        fos.write("小牛我顶死你".getBytes());
         fos.close();
     }
 }
