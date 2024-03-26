@@ -2,6 +2,7 @@ package com.atk1true.file;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
 
 public class Demo02File {
     public static void main(String[] args) throws IOException {
@@ -23,6 +24,7 @@ public class Demo02File {
         file01();
         file02();
         file03();
+        file04();
     }
     public static void file01(){
         //String getAbsolutePath()  ->获取File的绝对路径->带盘符的路径
@@ -38,9 +40,25 @@ public class Demo02File {
         System.out.println("file1.createNewFile() = " + file1.createNewFile());
         File file2 = new File("/Users/k1true/IdeaProjects/mac_test_project/testdir");
         System.out.println("file2.mkdirs() = " + file2.mkdirs());
+        File file3 = new File("/Users/k1true/IdeaProjects/mac_test_project/testdir/test2");
+        System.out.println("file3.mkdirs() = " + file3.mkdirs());
     }
     public static void file03(){
         File file1 = new File("/Users/k1true/IdeaProjects/mac_test_project/1.txt");
         System.out.println("file1.delete() = " + file1.delete());
+    }
+    public static void file04(){
+        File file04 = new File("/Users/k1true/IdeaProjects/mac_test_project/testdir");
+        System.out.println("file04.isDirectory() = " + file04.isDirectory());
+        System.out.println("file04.isFile() = " + file04.isFile());
+        System.out.println("file04.exists() = " + file04.exists());
+        String[] list = file04.list();
+        for (String s : list) {
+            System.out.println("s = " + s);
+        }
+        File[] files = file04.listFiles();
+        for (File file : files) {
+            System.out.println("file = " + file);
+        }
     }
 }
