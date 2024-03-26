@@ -1,6 +1,8 @@
 package com.atk1true.file;
 
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.file.Files;
 
@@ -25,6 +27,7 @@ public class Demo02File {
         file02();
         file03();
         file04();
+        method01();
     }
     public static void file01(){
         //String getAbsolutePath()  ->获取File的绝对路径->带盘符的路径
@@ -60,5 +63,13 @@ public class Demo02File {
         for (File file : files) {
             System.out.println("file = " + file);
         }
+    }
+    public static void method01() throws IOException {
+        File file = new File("/Users/k1true/IdeaProjects/mac_test_project/testdir/test2/1.txt");
+        System.out.println("file.createNewFile() = " + file.createNewFile());
+        FileOutputStream fos = new FileOutputStream("/Users/k1true/IdeaProjects/mac_test_project/testdir/test2/1.txt");
+        byte[] bytes = {97,98,99,100,101};
+        fos.write(bytes);
+        fos.close();
     }
 }
