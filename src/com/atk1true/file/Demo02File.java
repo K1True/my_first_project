@@ -1,9 +1,6 @@
 package com.atk1true.file;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
+import java.io.*;
 import java.nio.file.Files;
 
 public class Demo02File {
@@ -70,7 +67,14 @@ public class Demo02File {
         FileOutputStream fos = new FileOutputStream("/Users/k1true/IdeaProjects/mac_test_project/testdir/test2/1.txt");
         byte[] bytes = {97,98,99,100,101};
         fos.write(bytes);
-        fos.write("小牛我顶死你".getBytes());
+        fos.write("\n小牛我顶死你\n".getBytes());
         fos.close();
+        FileInputStream fis = new FileInputStream("/Users/k1true/IdeaProjects/mac_test_project/testdir/test2/1.txt");
+        byte[] bytes1 = new byte[25];
+        int len;
+        while((len = fis.read(bytes1)) != -1){
+            System.out.println(new String(bytes1));
+        }
+        fis.close();
     }
 }
